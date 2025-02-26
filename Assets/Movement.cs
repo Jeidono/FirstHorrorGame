@@ -1,6 +1,5 @@
-using System.Numerics;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class Movement : MonoBehaviour
 {
@@ -9,21 +8,24 @@ public class Movement : MonoBehaviour
     public float speed;
     public float jump;
     public Transform orientation;
+    public LayerMask Ground;
 
     private float vertical;
     private float horizontal;
+
+    public float downwardForce;
+    public float downwardMultiplier;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        
+      
     }
 
-    // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -31,8 +33,17 @@ public class Movement : MonoBehaviour
 
         move = orientation.right * horizontal + orientation.forward * vertical;
 
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
             jumping();
+        }
+        if (IsGrounded()){
+            downwardForce = 0;
+        }
+        else{
+            downwardForce += Time.deltaTime * downwardMultiplier;
+            rb.AddForce(-transform.up * downwardForce, ForceMode.Acceleration);
+        
         }
     }
 
@@ -40,9 +51,22 @@ public class Movement : MonoBehaviour
     {
         rb.AddForce(move.normalized * speed, ForceMode.Acceleration);
     }
-    
-    public void jumping(){
+
+    public void jumping()
+    {
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
         rb.AddForce(transform.up * jump, ForceMode.Impulse);
     }
-}
 
+    public bool IsGrounded()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1.5f, Ground))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}

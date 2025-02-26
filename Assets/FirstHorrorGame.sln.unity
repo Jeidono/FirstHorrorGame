@@ -434,6 +434,11 @@ MonoBehaviour:
   speed: 50
   jump: 10
   orientation: {fileID: 1691520840}
+  Ground:
+    serializedVersion: 2
+    m_Bits: 64
+  downwardForce: 0
+  downwardMultiplier: 10
 --- !u!1 &615021340
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +562,7 @@ GameObject:
   - component: {fileID: 1093140314}
   - component: {fileID: 1093140313}
   - component: {fileID: 1093140312}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
