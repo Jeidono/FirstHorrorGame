@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 308955671}
   - component: {fileID: 308955670}
   - component: {fileID: 308955669}
+  - component: {fileID: 308955672}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -324,7 +325,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -342,6 +343,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &308955672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308955667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00429c692da701549a6ddd18e0bd21d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensY: 300
+  sensX: 300
+  orientation: {fileID: 1691520840}
 --- !u!1 &524245668
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 524245670}
   - component: {fileID: 524245669}
+  - component: {fileID: 524245671}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -368,7 +385,7 @@ Rigidbody:
   m_GameObject: {fileID: 524245668}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 4
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -383,9 +400,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 14
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!4 &524245670
 Transform:
   m_ObjectHideFlags: 0
@@ -402,6 +419,21 @@ Transform:
   - {fileID: 615021341}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &524245671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524245668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e43becfc2927b4799dc21e5b671c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+  jump: 10
+  orientation: {fileID: 1691520840}
 --- !u!1 &615021340
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +499,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615021340}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -783,6 +815,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1827683713}
+  - component: {fileID: 1827683714}
   m_Layer: 0
   m_Name: CamHolder
   m_TagString: Untagged
@@ -806,6 +839,19 @@ Transform:
   - {fileID: 308955668}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1827683714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827683712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212e9f62a25034d40bb64f1cb1cb3bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camPos: {fileID: 161726415}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
