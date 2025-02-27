@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
+    public GameObject Instruction;
     public GameObject door; // Reference to the door (drag the door object here in the inspector)
     public float openRot = 115; // angle when door is open
     public float closeRot = 0; // angle when door is closed
@@ -40,6 +41,12 @@ public class DoorController : MonoBehaviour
             ToggleDoor();
         }
 
+        if(distance <= activationDistance){
+            Instruction.SetActive(true);
+        }
+        if (distance >= activationDistance){
+            Instruction.SetActive(false);
+        }
 
     }
 
