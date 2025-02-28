@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    public GameObject Instruction;
-    public GameObject door; // Reference to the door (drag the door object here in the inspector)
+    
+    public GameObject door; 
     public float openRot = 115; // angle when door is open
     public float closeRot = 0; // angle when door is closed
     public float speed = 2; // speed of opening/closing door
@@ -39,13 +39,6 @@ public class DoorController : MonoBehaviour
         if (distance <= activationDistance && Input.GetKeyDown(KeyCode.E))
         {
             ToggleDoor();
-        }
-
-        if(distance <= activationDistance){
-            Instruction.SetActive(true);
-        }
-        if (distance >= activationDistance){
-            Instruction.SetActive(false);
         }
 
     }
